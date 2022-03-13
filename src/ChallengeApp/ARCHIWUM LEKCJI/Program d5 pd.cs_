@@ -1,0 +1,33 @@
+﻿using System;
+using System.Collections.Generic;   // dodać aby móc używać LIST
+
+namespace ChallengeApp //Zadanie Domowe Dzień 5: Tablice, Listy i Klasy
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+
+        var lista_strigów = new List<string>(){"Marian","Stefan"};
+        var lista_intów = new List<int>(){5,10,15};
+
+            foreach(var n in lista_strigów)
+            {
+                Console.WriteLine(n);
+                foreach (var i in lista_intów)
+                {
+                Console.WriteLine(i);
+                }
+            }
+
+
+
+
+        }
+        
+
+
+    }
+    
+}
+

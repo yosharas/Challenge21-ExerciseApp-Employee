@@ -1,0 +1,42 @@
+﻿using System;
+
+namespace WYZWANIE_21_DZIEŃ_4
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+
+            double a=10;
+            double b=100;
+            float c=10;
+            float d=100;
+            string Name ="John";
+            string Surname ="Doe";
+            long long1 = 11111111111111; //long był zbyt długi :)
+            decimal decimal1 = 111.111111111111111111111m; // decimal ->trzeba było dopisać M??
+
+            // Wyniki   
+            double result = a/b;
+            var result1 =a/b;
+            double result2=c/d;
+            var result3 = a/b;
+            var result4=c/d;
+            var person = Name + " " + Surname;
+        
+            var ciekawe = Name+a;
+
+            if(args.Length > 0)
+            {
+                Console.WriteLine($"Oto pierwszy argument --> {args[0]}");
+            }
+            else
+            {
+                Console.WriteLine("Hello");
+            }
+        
+
+
+        }
+    }
+}

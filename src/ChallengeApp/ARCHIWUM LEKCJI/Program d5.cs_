@@ -1,0 +1,66 @@
+﻿using System;
+using System.Collections.Generic;   // dodać aby móc używać LIST
+
+namespace ChallengeApp
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+        // TABLICA i pętla FOREACH 
+        var numbers = new double[]{1.1,2.2,3.3};
+        var result = 0.0;
+        foreach(var n in numbers)
+        {
+            result += n;
+        }
+
+        Console.WriteLine($"result wynosi "+result);
+
+        // LISTA i suma z listy
+
+        var number2 = new List<double>(){1.1,2.2,3.3};
+        number2.Add (4.4);      //dodanie nowej pozycji
+        number2.RemoveAt(3);    //usunięcie pozycji 4
+
+         var result2 = 0.0;
+        foreach(var n in numbers)
+        {
+            result2 += n;
+        }
+
+        // LISTA i średnia z listy
+        result2 /=number2.Count;
+
+        Console.WriteLine("średnia result2 wynosi " + result2);
+        Console.WriteLine("średnia result2 wynosi (by FANT) " + result2.ToString("N2"));
+        Console.WriteLine($"średnia result2 wynosi {result2:N2}");
+
+        // KLASY
+
+        var employee = new Employee("Joachim");
+
+
+
+
+
+
+
+
+
+
+            if(args.Length > 0)
+            {
+                Console.WriteLine($"Oto pierwszy argument --> {args[0]}");
+            }
+            else
+            {
+                Console.WriteLine("Hello");
+            }
+        
+
+
+        }
+    }
+}
+

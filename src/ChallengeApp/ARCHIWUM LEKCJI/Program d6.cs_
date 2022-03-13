@@ -1,0 +1,44 @@
+﻿using System;
+using System.Collections.Generic;   // dodać aby móc używać LIST
+
+namespace ChallengeApp 
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            var employee = new Employee("Joachim");
+            // var employee. =new List<double>(){11.1, 12.2, 13.4};
+            employee.AddGrades(new List<double>(){11.1, 12.2, 13.4});
+
+
+            // var grades =new List<double>(){11.1, 12.2, 13.4};
+
+            // var result =0.0;
+            // var highGrade = double.MinValue;
+            // var lowGrade = double.MaxValue;
+            
+            // foreach( var n in grades)
+            // {
+            //     lowGrade=Math.Min(lowGrade, n);
+            //     highGrade=Math.Max(highGrade,n);
+            //     result += n;
+            // }
+            //        Console.WriteLine("Najniższa ocena to "+lowGrade.ToString("N2"));
+            //        Console.WriteLine("Najwyższa ocena to "+highGrade);
+            //        Console.WriteLine("Suma ocen to "+result.ToString("N2"));
+
+
+            // employee.ShowStatistic();
+
+            
+            var stat = employee.GetStatistic();
+
+
+            Console.WriteLine(stat.Low);
+            Console.WriteLine(stat.Average.ToString("N2"));
+        }
+    }
+    
+}
+
