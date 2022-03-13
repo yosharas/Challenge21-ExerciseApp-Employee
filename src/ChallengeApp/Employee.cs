@@ -24,7 +24,6 @@ namespace ChallengeApp
         {
             this.Grades.AddRange(gradeList);
         }
-        public delegate void GradeAddedDelegate(object sender, EventArgs args);
         public event GradeAddedDelegate GradeAdded;
         public override void AddGrade(string input)
         {
