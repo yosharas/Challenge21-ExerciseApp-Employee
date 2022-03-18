@@ -13,7 +13,7 @@ namespace ChallengeApp
         {
         }
 
-        private string filename { get; set;}
+        private string filename { get; set; }
 
         public void SetFileName()
         {
@@ -21,14 +21,11 @@ namespace ChallengeApp
         }
 
 
-
-
         public override event GradeAddedDelegate GradeAdded;
         public override void AddGrade(string input)
         {
             using (var writer = File.AppendText($"{filename}"))
             {
-
                 if (double.TryParse(input, out var grade))
                 {
                     if (grade >= 1 && grade <= 6)
@@ -38,6 +35,7 @@ namespace ChallengeApp
                         {
                             GradeAdded(this, new EventArgs());
                         }
+                        this.Grades.Add(grade);
                     }
                     else
                     {
@@ -88,6 +86,7 @@ namespace ChallengeApp
                             throw new Exception($"Podana wartość:\"{input}\" jest nieprawdłowa. Ocena musi zostać podana w formacie cyfry od 1 do 6 z opcjonalnym znakiem \"+\" lub \"-\"");
                     }
                     writer.WriteLine(grade);
+                    this.Grades.Add(grade);
                     if (GradeAdded != null)
                     {
                         GradeAdded(this, new EventArgs());
@@ -98,10 +97,6 @@ namespace ChallengeApp
         public static void OnGradeAdded(object sender, EventArgs args)
         {
             Console.WriteLine($"Grade has been added.");
-        }
-        public override void AddGrades(List<double> gradeList)
-        {
-            throw new NotImplementedException();
         }
         public override Statistics GetStatistic()
         {

@@ -20,7 +20,7 @@ namespace ChallengeApp
         {
         }
         // public List<double> Grades = new List<double>();
-        public override void AddGrades(List<double> gradeList)
+        public void AddGrades(List<double> gradeList)
         {
             this.Grades.AddRange(gradeList);
         }

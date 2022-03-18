@@ -14,6 +14,7 @@ namespace ChallengeApp
         public override event GradeAddedDelegate GradeAdded;
         public override void AddGrade(string input)
         {
+            
             if (double.TryParse(input, out var grade))
             {
                 if (grade >= 1 && grade <= 6)
@@ -89,10 +90,6 @@ namespace ChallengeApp
         public static void OnGradeAdded(object sender, EventArgs args)
         {
             Console.WriteLine("Oh no! We should inform students' parents about this fact");
-        }
-        public override void AddGrades(List<double> gradeList)
-        {
-            this.Grades.AddRange(gradeList);
         }
         public override Statistics GetStatistic()
         {

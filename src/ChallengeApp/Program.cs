@@ -9,16 +9,12 @@ namespace ChallengeApp
         static void Main(string[] args)
         {
             var studenttofile = new StudentSavedToFile("Joachim");
+            studenttofile.SetFileName();
             studenttofile.GradeAdded += StudentSavedToFile.OnGradeAdded; // dodanie delegatu, który wywołuje event
 
             EnterGrade(studenttofile);
-
+            // studenttofile.GetStatistic();
             var stat = studenttofile.GetStatistic();
-
-            Console.WriteLine("podaj ocenę");
-            string grade = Console.ReadLine();
-            studenttofile.AddGrade(grade);
-
         }
 
         private static void EnterGrade(StudentSavedToFile studenttofile)
@@ -27,9 +23,10 @@ namespace ChallengeApp
             {
                 Console.WriteLine($"Please enter grade {studenttofile.Name}");
                 var input = Console.ReadLine();
-
-                if (input == "q")
+                // var input = "3";
+                if (input.Equals("q"))
                 {
+                    Console.WriteLine("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA");
                     break;
                 }
                 try
@@ -47,7 +44,6 @@ namespace ChallengeApp
                 finally
                 {
                 }
-
             }
         }
         // ExerciseWithMethodExtraction();

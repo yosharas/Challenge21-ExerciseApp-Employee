@@ -6,14 +6,16 @@ namespace ChallengeApp
     {
         public UniversityFrequenter(string name)
         {
+            Name = name;
         }
         public UniversityFrequenter(string name, string sex)
         {
+            Name = name;
         }
-        public List<double> Grades;
+        public List<double> Grades {get; set;} = new List<double>();
+
         public abstract event GradeAddedDelegate GradeAdded;
         public abstract void AddGrade(string input);
-        public abstract void AddGrades(List<double> gradeList);
         public abstract Statistics GetStatistic();
     }
 }
