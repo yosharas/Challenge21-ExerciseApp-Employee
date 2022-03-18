@@ -10,7 +10,8 @@ namespace ChallengeApp
         public UniversityFrequenter(string name, string sex)
         {
         }
-        public event GradeAddedDelegate GradeAdded;
+        public List<double> Grades;
+        public abstract event GradeAddedDelegate GradeAdded;
         public abstract void AddGrade(string input);
         public abstract void AddGrades(List<double> gradeList);
         public abstract Statistics GetStatistic();

@@ -3,33 +3,18 @@ using System.Collections.Generic;
 
 namespace ChallengeApp
 {
-    public class Employee : UniversityFrequenter
+    public class StudentSavedToMemory : StudentBase
     {
-        public Employee(string name) : base(name)
-        {
-            if (name.EndsWith("a"))
-            {
-                Sex = "F";
-            }
-            else
-            {
-                Sex = "M";
-            }
-        }
-        public Employee(string name, string sex) : base(name, sex)
+        public StudentSavedToMemory(string name) : base(name)
         {
         }
-        // public List<double> Grades = new List<double>();
-        public override void AddGrades(List<double> gradeList)
+        public StudentSavedToMemory(string name, string sex) : base(name, sex)
         {
-            this.Grades.AddRange(gradeList);
         }
         public override event GradeAddedDelegate GradeAdded;
-
         public override void AddGrade(string input)
         {
             if (double.TryParse(input, out var grade))
-
             {
                 if (grade >= 1 && grade <= 6)
                 {
@@ -105,18 +90,9 @@ namespace ChallengeApp
         {
             Console.WriteLine("Oh no! We should inform students' parents about this fact");
         }
-        public void ChangeName(string name)
+        public override void AddGrades(List<double> gradeList)
         {
-            foreach (var sign in name)
-            {
-                if (char.IsDigit(sign))
-                {
-                    Console.WriteLine("Imiona nie zawierają cyfr");
-                    return;
-                }
-            }
-            this.Name = name;
-            Console.WriteLine($"Imię zostało zmienione na: {name}");
+            this.Grades.AddRange(gradeList);
         }
         public override Statistics GetStatistic()
         {
@@ -138,9 +114,7 @@ namespace ChallengeApp
             Console.WriteLine("Najwyższa ocena to " + result.High.ToString("N2"));
             Console.WriteLine("Średnia ocen to " + result.Average.ToString("N2"));
 
-            ;
             return result;
-
         }
     }
 }
