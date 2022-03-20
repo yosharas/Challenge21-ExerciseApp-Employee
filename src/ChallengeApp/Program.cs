@@ -21,12 +21,12 @@ namespace ChallengeApp
         {
             while (true)
             {
-                Console.WriteLine($"Please enter grade {studenttofile.Name}");
+                Console.WriteLine($"Please enter grade for {studenttofile.Name}");
                 var input = Console.ReadLine();
                 // var input = "3";
                 if (input.Equals("q"))
                 {
-                    Console.WriteLine("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA");
+                    Console.WriteLine("Program stopped");
                     break;
                 }
                 try
