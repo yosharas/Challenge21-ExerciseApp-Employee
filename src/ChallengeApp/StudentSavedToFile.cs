@@ -12,25 +12,24 @@ namespace ChallengeApp
         public StudentSavedToFile(string name, string sex) : base(name, sex)
         {
         }
-
         private string filename { get; set; }
-
+        const string filename2 ="audit.txt";
         public void SetFileName()
         {
             this.filename = $"{Name}_StudentSavedToFile.txt";
         }
-
-
         public override event GradeAddedDelegate GradeAdded;
         public override void AddGrade(string input)
         {
             using (var writer = File.AppendText($"{filename}"))
+            using(var writer2 = File.AppendText($"{filename2}"))
             {
                 if (double.TryParse(input, out var grade))
                 {
                     if (grade >= 1 && grade <= 6)
                     {
                         writer.WriteLine(grade);
+                        writer2.WriteLine($"{grade} {DateTime.UtcNow}");
                         if (GradeAdded != null)
                         {
                             GradeAdded(this, new EventArgs());
@@ -86,6 +85,7 @@ namespace ChallengeApp
                             throw new Exception($"Podana wartość:\"{input}\" jest nieprawdłowa. Ocena musi zostać podana w formacie cyfry od 1 do 6 z opcjonalnym znakiem \"+\" lub \"-\"");
                     }
                     writer.WriteLine(grade);
+                    writer2.WriteLine($"{grade} {DateTime.UtcNow}");
                     this.Grades.Add(grade);
                     if (GradeAdded != null)
                     {
@@ -94,6 +94,7 @@ namespace ChallengeApp
                 }
             }
         }
+        
         public static void OnGradeAdded(object sender, EventArgs args)
         {
             Console.WriteLine($"Grade has been added.");
@@ -117,9 +118,7 @@ namespace ChallengeApp
             Console.WriteLine("Najniższa ocena to " + result.Low.ToString("N2"));
             Console.WriteLine("Najwyższa ocena to " + result.High.ToString("N2"));
             Console.WriteLine("Średnia ocen to " + result.Average.ToString("N2"));
-
             return result;
-
         }
     }
 }
